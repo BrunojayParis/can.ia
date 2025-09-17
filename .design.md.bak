@@ -1,0 +1,461 @@
+# Can.IA Design Specification Document
+
+_Complete design system documentation for Figma recreation_
+
+## Overview
+
+Can.IA is a modern AI agents platform with a clean, professional design emphasizing trust, efficiency, and technological sophistication. The design uses a minimal color palette with strategic use of accent colors to highlight key information.
+
+---
+
+## 🎨 Design Tokens
+
+### Colors
+
+#### Light Theme
+
+```
+Primary Colors:
+- Primary: #030213 (Dark navy - main brand color)
+- Primary Foreground: #ffffff (White text on primary)
+- Background: #ffffff (Page background)
+- Foreground: oklch(0.145 0 0) (Main text color - very dark gray)
+
+Secondary Colors:
+- Secondary: oklch(0.95 0.0058 264.53) (Very light purple-gray)
+- Secondary Foreground: #030213 (Dark text on secondary)
+- Muted: #ececf0 (Light gray backgrounds)
+- Muted Foreground: #717182 (Medium gray text)
+
+Interactive Colors:
+- Accent: #e9ebef (Light gray for hover states)
+- Accent Foreground: #030213 (Dark text on accent)
+- Destructive: #d4183d (Red for errors/warnings)
+- Destructive Foreground: #ffffff (White text on destructive)
+
+Borders & Inputs:
+- Border: rgba(0, 0, 0, 0.1) (10% black overlay)
+- Input: transparent
+- Input Background: #f3f3f5 (Light gray input fields)
+- Card: #ffffff (Card backgrounds)
+- Card Foreground: oklch(0.145 0 0) (Text on cards)
+```
+
+#### Dark Theme
+
+```
+Primary Colors:
+- Primary: oklch(0.985 0 0) (Near white)
+- Primary Foreground: oklch(0.205 0 0) (Dark gray)
+- Background: oklch(0.145 0 0) (Very dark background)
+- Foreground: oklch(0.985 0 0) (Near white text)
+
+Secondary Colors:
+- Secondary: oklch(0.269 0 0) (Dark gray)
+- Secondary Foreground: oklch(0.985 0 0) (Light text)
+- Muted: oklch(0.269 0 0) (Dark gray)
+- Muted Foreground: oklch(0.708 0 0) (Medium gray)
+
+Interactive Colors:
+- Accent: oklch(0.269 0 0) (Dark gray)
+- Accent Foreground: oklch(0.985 0 0) (Light text)
+- Border: oklch(0.269 0 0) (Dark gray borders)
+```
+
+### Typography
+
+#### Font System
+
+- Base Font Size: 16px
+- Font Weight Normal: 400
+- Font Weight Medium: 500
+- Line Height: 1.5 (for all text elements)
+
+#### Type Scale
+
+```
+Headings:
+- H1: text-2xl (24px), font-weight: 500, line-height: 1.5
+- H2: text-xl (20px), font-weight: 500, line-height: 1.5
+- H3: text-lg (18px), font-weight: 500, line-height: 1.5
+- H4: text-base (16px), font-weight: 500, line-height: 1.5
+
+Body Text:
+- Paragraph: text-base (16px), font-weight: 400, line-height: 1.5
+- Small: text-sm (14px), font-weight: 400, line-height: 1.5
+
+Interactive Elements:
+- Button: text-base (16px), font-weight: 500, line-height: 1.5
+- Label: text-base (16px), font-weight: 500, line-height: 1.5
+- Input: text-base (16px), font-weight: 400, line-height: 1.5
+```
+
+#### Hero Typography (Special Cases)
+
+```
+- Hero H1: text-4xl md:text-6xl lg:text-7xl (36px/60px/72px)
+- Hero Subtitle: text-lg md:text-xl (18px/20px)
+- Section Headers: text-3xl md:text-4xl (30px/36px)
+```
+
+### Spacing & Layout
+
+#### Spacing Scale
+
+```
+- Space 1: 4px (0.25rem)
+- Space 2: 8px (0.5rem)
+- Space 3: 12px (0.75rem)
+- Space 4: 16px (1rem)
+- Space 6: 24px (1.5rem)
+- Space 8: 32px (2rem)
+- Space 12: 48px (3rem)
+- Space 16: 64px (4rem)
+- Space 20: 80px (5rem)
+```
+
+#### Border Radius
+
+```
+- Radius SM: calc(var(--radius) - 4px) ≈ 6px
+- Radius MD: calc(var(--radius) - 2px) ≈ 8px
+- Radius LG: var(--radius) = 10px (0.625rem)
+- Radius XL: calc(var(--radius) + 4px) ≈ 14px
+```
+
+#### Container & Grid
+
+```
+- Max Width: 1152px (6xl)
+- Container Padding: 24px (1.5rem) on mobile, 24px on desktop
+- Grid Columns: 1 (mobile), 2 (tablet), 3-4 (desktop)
+- Grid Gap: 32px (2rem)
+```
+
+---
+
+## 📱 Layout Structure
+
+### Header Component
+
+```
+Dimensions:
+- Height: 64px (4rem)
+- Position: Fixed top
+- Z-index: 50
+- Background: Semi-transparent with backdrop blur
+
+Layout:
+- Container: max-width 1152px, padding 24px horizontally
+- Flexbox: justify-between, align-center
+- Logo section: flex items-center, gap 8px
+- Navigation: hidden on mobile, visible md+, gap 24px
+- Actions: flex items-center, gap 16px
+
+Logo:
+- Icon: Bot icon, 24px, primary color
+- Text: "Can.IA", font-weight 600
+
+Navigation Links:
+- Color: muted-foreground
+- Hover: foreground color
+- Transition: colors
+
+Buttons:
+- Login: ghost variant, small size
+- Sign Up: default variant, small size
+```
+
+### Hero Section
+
+```
+Dimensions:
+- Padding Top: 128px (8rem) - accounts for fixed header
+- Padding Bottom: 80px (5rem)
+- Horizontal Padding: 24px
+
+Layout:
+- Container: max-width 1024px (4xl), centered
+- Text Alignment: center
+
+Status Badge:
+- Background: muted
+- Padding: 4px 12px
+- Border Radius: full (999px)
+- Margin Bottom: 32px
+- Contains: green dot (8px) + text
+
+Main Headline:
+- Font Size: responsive (36px → 60px → 72px)
+- Font Weight: bold
+- Gradient: from-foreground to-muted-foreground
+- Margin Bottom: 24px
+- Line breaks: strategic for impact
+
+Subtitle:
+- Font Size: 18px → 20px
+- Color: muted-foreground
+- Max Width: 512px (2xl), centered
+- Margin Bottom: 48px
+
+CTA Buttons:
+- Layout: flex column → row on sm+
+- Gap: 16px
+- Alignment: center
+- Margin Bottom: 64px
+
+Demo Card:
+- Background: card color
+- Border: border color
+- Border Radius: lg (10px)
+- Padding: 32px
+- Shadow: 2xl shadow
+- Relative positioning for gradient overlay
+```
+
+### Features Section
+
+```
+Dimensions:
+- Padding: 80px vertical, 24px horizontal
+- Background: muted/50 (50% opacity overlay)
+
+Layout:
+- Container: max-width 1152px
+- Grid: 1 → 2 → 3 columns
+- Gap: 32px
+
+Section Header:
+- Text Alignment: center
+- Margin Bottom: 64px
+- Max Width: 512px, centered
+
+Feature Cards:
+- Background: card
+- Border: border color
+- Border Radius: lg (10px)
+- Padding: 24px
+- Hover: shadow-lg with transition
+
+Icon Container:
+- Background: primary/10 (10% opacity)
+- Dimensions: 48px × 48px
+- Border Radius: lg (10px)
+- Flex center alignment
+- Margin Bottom: 16px
+
+Icon:
+- Size: 24px
+- Color: primary
+
+Benefits Section:
+- Grid: 1 → 3 columns
+- Text Alignment: center
+- Larger icons: 64px container, 32px icon
+```
+
+### Stats Section
+
+```
+Dimensions:
+- Padding: 80px vertical, 24px horizontal
+
+Stats Grid:
+- Grid: 2 → 4 columns
+- Gap: 32px
+- Text Alignment: center
+- Margin Bottom: 64px
+
+Stat Item:
+- Value: text-3xl → text-4xl, font-bold, primary color
+- Label: muted-foreground, margin-top 8px
+
+Industries Grid:
+- Grid: 2 → 3 columns
+- Gap: 16px
+- Max Width: 768px, centered
+
+Industry Item:
+- Background: muted/50
+- Border Radius: lg
+- Padding: 12px
+- Text Alignment: center
+
+CTA Section:
+- Background: gradient from primary/10 via primary/5 to primary/10
+- Border Radius: 2xl (24px)
+- Padding: 48px
+- Text Alignment: center
+- Margin Top: 64px
+```
+
+### Footer Component
+
+```
+Dimensions:
+- Padding: 64px vertical, 24px horizontal
+- Background: muted/50
+- Border Top: border color
+
+Layout:
+- Container: max-width 1152px
+- Grid: 2 → 6 columns on md+
+- Gap: 32px
+
+Brand Section:
+- Span: 2 columns
+- Logo: same as header
+- Description: max-width 384px (sm)
+- Social Icons: 20px, gap 16px
+
+Link Sections:
+- Spacing: 12px between items
+- Title: font-semibold, margin-bottom 12px
+- Links: muted-foreground, text-sm, hover effects
+
+Bottom Bar:
+- Border Top: border color
+- Margin Top: 48px
+- Padding Top: 32px
+- Flex: column → row, justify-between
+- Copyright: muted-foreground, text-sm
+- Legal Links: gap 24px, margin-top 16px → 0
+```
+
+---
+
+## 🎯 Component States
+
+### Buttons
+
+```
+Primary Button:
+- Default: primary background, primary-foreground text
+- Hover: primary/90 background
+- Focus: ring outline
+- Disabled: reduced opacity
+
+Secondary/Outline Button:
+- Default: transparent bg, border, primary text
+- Hover: muted background
+- Focus: ring outline
+
+Ghost Button:
+- Default: transparent background
+- Hover: accent background
+- Focus: ring outline
+
+Sizes:
+- Small: padding 8px 12px, text-sm
+- Default: padding 8px 16px, text-base
+- Large: padding 12px 24px, text-base
+```
+
+### Interactive Elements
+
+```
+Links:
+- Default: muted-foreground
+- Hover: foreground
+- Transition: colors, duration 200ms
+
+Cards:
+- Default: card background, border
+- Hover: shadow-lg
+- Transition: shadow, duration 200ms
+
+Icons:
+- Default: current color inheritance
+- Interactive: primary color for brand elements
+- Size: 16px (sm), 20px (default), 24px (lg), 32px (xl)
+```
+
+---
+
+## 🔍 Specific Measurements
+
+### Header
+
+- Total height: 64px
+- Logo icon: 24px × 24px
+- Logo text: font-weight 600, 16px
+- Nav gap: 24px between items
+- Button gap: 16px between buttons
+
+### Hero Section
+
+- Status badge: height 32px, padding 4px 12px
+- Green dot: 8px diameter
+- Main headline: line-height 1.1 (tighter for impact)
+- CTA buttons: height 44px (large size)
+- Demo card: padding 32px, shadow blur 25px
+
+### Feature Cards
+
+- Card dimensions: flexible width, minimum 280px
+- Icon container: 48px × 48px, icon 24px
+- Card padding: 24px all sides
+- Title margin: 8px bottom
+- Description margin: 16px bottom from title
+
+### Stats
+
+- Stat value: minimum height 48px for alignment
+- Industry pills: height 40px, padding 12px horizontal
+
+### Footer
+
+- Social icons: 20px × 20px
+- Link spacing: 8px vertical between items
+- Section gap: 32px horizontal
+
+---
+
+## 🎨 Visual Guidelines
+
+### Gradients
+
+- Hero text gradient: linear, 180°, from foreground (0%) to muted-foreground (100%)
+- CTA background: linear, 90°, from primary/10 (0%) via primary/5 (50%) to primary/10 (100%)
+
+### Shadows
+
+- Card hover: 0 25px 50px -12px rgba(0,0,0,0.25)
+- Demo card: 0 25px 50px -12px rgba(0,0,0,0.25)
+
+### Overlays
+
+- Demo card gradient: linear, 0°, from background (0%) via transparent (50%) to transparent (100%)
+- Background sections: muted with 50% opacity
+
+### Animations
+
+- All transitions: 200ms ease-in-out
+- Hover effects: scale 1.02 on cards
+- Button hovers: slight opacity change (90%)
+
+---
+
+## 📱 Responsive Breakpoints
+
+```
+Mobile: 0-767px
+- Single column layouts
+- Stacked navigation (hamburger menu)
+- Larger touch targets (44px minimum)
+- Hero text: 36px
+- Padding: 16px horizontal
+
+Tablet: 768-1023px
+- 2-column feature grid
+- Hero text: 60px
+- Padding: 20px horizontal
+
+Desktop: 1024px+
+- 3-column feature grid
+- 4-column stats grid
+- Full navigation visible
+- Hero text: 72px
+- Padding: 24px horizontal
+- Max content width: 1152px
+```
