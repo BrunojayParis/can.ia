@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
+import ChatDemoSection from "@/components/ChatDemoSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import StatsSection from "@/components/StatsSection";
 import FinalCTA from "@/components/FinalCTA";
@@ -11,6 +12,7 @@ export default function Home() {
       <Header />
       <main>
         <HeroSection />
+        <ChatDemoSection />
         <FeaturesSection />
         <StatsSection />
         <FinalCTA />

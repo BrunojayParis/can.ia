@@ -61,13 +61,13 @@ export default function Header() {
         <div className="hidden md:flex items-center gap-4">
           <Link
             href="#"
-            className="h-9 px-3 rounded-md text-sm text-foreground hover:bg-accent transition-colors duration-200"
+            className="inline-flex items-center justify-center h-9 px-3 rounded-md text-sm text-foreground hover:bg-accent transition-colors duration-200"
           >
             Iniciar sesión
           </Link>
           <Link
             href="#planes"
-            className="h-9 px-3 rounded-md text-sm bg-primary text-primary-foreground hover:opacity-90 transition-opacity duration-200"
+            className="inline-flex items-center justify-center h-9 px-3 rounded-md text-sm bg-primary text-primary-foreground hover:opacity-90 transition-opacity duration-200"
           >
             Probar Can.IA
           </Link>
