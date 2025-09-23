@@ -1,16 +1,47 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isIndustriesOpen, setIsIndustriesOpen] = useState(false);
+  const industriesMenuRef = useRef<HTMLDivElement | null>(null);
+
+  const industries = [
+    { href: "/industrias/salud", label: "Salud", icon: "❤️" },
+    {
+      href: "/industrias/servicios-profesionales",
+      label: "Servicios profesionales",
+      icon: "📋",
+    },
+    { href: "/industrias/inmobiliarias", label: "Inmobiliarias", icon: "🏢" },
+  ];
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 4);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      const target = e.target as Node | null;
+      if (!industriesMenuRef.current) return;
+      if (!industriesMenuRef.current.contains(target)) {
+        setIsIndustriesOpen(false);
+      }
+    }
+    function handleEscape(e: KeyboardEvent) {
+      if (e.key === "Escape") setIsIndustriesOpen(false);
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleEscape);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEscape);
+    };
   }, []);
 
   return (
@@ -32,6 +63,37 @@ export default function Header() {
         </Link>
 
         <nav className="hidden md:flex items-center gap-6" aria-label="Principal">
+          <div className="relative" ref={industriesMenuRef}>
+            <button
+              type="button"
+              className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+              aria-haspopup="menu"
+              aria-expanded={isIndustriesOpen}
+              onClick={() => setIsIndustriesOpen((v) => !v)}
+            >
+              Industrias
+              <span aria-hidden className="text-xs">▾</span>
+            </button>
+            {isIndustriesOpen && (
+              <div
+                role="menu"
+                className="absolute left-0 mt-2 w-64 rounded-[12px] border border-border bg-card shadow-xl p-2"
+              >
+                {industries.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="flex items-center gap-3 rounded-[10px] px-3 py-2 text-sm text-foreground hover:bg-accent transition-colors"
+                    onClick={() => setIsIndustriesOpen(false)}
+                    role="menuitem"
+                  >
+                    <span aria-hidden className="text-base">{item.icon}</span>
+                    <span>{item.label}</span>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
           <Link
             href="#caracteristicas"
             className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
