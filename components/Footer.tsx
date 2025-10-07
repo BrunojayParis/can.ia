@@ -25,7 +25,6 @@ export default function Footer() {
           <ul className="space-y-2 text-sm text-muted-foreground">
             <li><Link href="#caracteristicas" className="hover:text-foreground transition-colors">Características</Link></li>
             <li><Link href="#casos-uso" className="hover:text-foreground transition-colors">Casos de uso</Link></li>
-            <li><Link href="#planes" className="hover:text-foreground transition-colors">Planes</Link></li>
           </ul>
         </div>
 
@@ -33,17 +32,15 @@ export default function Footer() {
           <div className="font-semibold mb-3">Empresa</div>
           <ul className="space-y-2 text-sm text-muted-foreground">
             <li><Link href="#contacto" className="hover:text-foreground transition-colors">Contacto</Link></li>
-            <li><Link href="#" className="hover:text-foreground transition-colors">Blog</Link></li>
-            <li><Link href="#" className="hover:text-foreground transition-colors">Careers</Link></li>
           </ul>
         </div>
 
         <div>
           <div className="font-semibold mb-3">Legal</div>
           <ul className="space-y-2 text-sm text-muted-foreground">
-            <li><Link href="#" className="hover:text-foreground transition-colors">Privacidad</Link></li>
-            <li><Link href="#" className="hover:text-foreground transition-colors">Términos</Link></li>
-            <li><Link href="#" className="hover:text-foreground transition-colors">Cookies</Link></li>
+            <li><Link href="/legal/privacidad" className="hover:text-foreground transition-colors">Privacidad</Link></li>
+            <li><Link href="/legal/terminos" className="hover:text-foreground transition-colors">Términos</Link></li>
+            <li><Link href="/legal/cookies" className="hover:text-foreground transition-colors">Cookies</Link></li>
           </ul>
         </div>
       </div>
@@ -53,7 +50,7 @@ export default function Footer() {
           <div className="text-sm text-muted-foreground">© {year} Can.IA. Todos los derechos reservados.</div>
           <div className="flex gap-6 text-sm text-muted-foreground">
             <Link href="#contacto" className="hover:text-foreground transition-colors">Contacto</Link>
-            <Link href="#" className="hover:text-foreground transition-colors">Términos</Link>
+            <Link href="/legal/terminos" className="hover:text-foreground transition-colors">Términos</Link>
           </div>
         </div>
       </div>

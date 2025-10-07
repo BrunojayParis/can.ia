@@ -70,7 +70,7 @@ export default function Header() {
       role="banner"
     >
       <div className="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
-        <Link href="#" className="flex items-center gap-2" aria-label="Inicio">
+        <Link href="/" className="flex items-center gap-2" aria-label="Inicio">
           <span
             aria-hidden
             className="inline-flex h-6 w-6 items-center justify-center rounded-lg bg-primary/10 text-primary"
@@ -125,12 +125,6 @@ export default function Header() {
             Casos de uso
           </Link>
           <Link
-            href="#planes"
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
-          >
-            Planes
-          </Link>
-          <Link
             href="#contacto"
             className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
           >
@@ -139,12 +133,6 @@ export default function Header() {
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
-          <Link
-            href="#"
-            className="inline-flex items-center justify-center h-9 px-3 rounded-md text-sm text-foreground hover:bg-accent transition-colors duration-200"
-          >
-            Iniciar sesión
-          </Link>
           <Link
             href="#planes"
             className="inline-flex items-center justify-center h-9 px-3 rounded-md text-sm bg-primary text-primary-foreground hover:opacity-90 transition-opacity duration-200"
@@ -209,13 +197,6 @@ export default function Header() {
                 Casos de uso
               </Link>
               <Link
-                href="#planes"
-                className="rounded-[10px] px-3 py-2 text-sm text-foreground hover:bg-accent transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Planes
-              </Link>
-              <Link
                 href="#contacto"
                 className="rounded-[10px] px-3 py-2 text-sm text-foreground hover:bg-accent transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
@@ -227,13 +208,6 @@ export default function Header() {
             <div className="h-px bg-border" aria-hidden />
 
             <div className="grid gap-2">
-              <Link
-                href="#"
-                className="inline-flex items-center justify-center h-10 rounded-md text-sm text-foreground hover:bg-accent transition-colors duration-200"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Iniciar sesión
-              </Link>
               <Link
                 href="#planes"
                 className="inline-flex items-center justify-center h-10 rounded-md text-sm bg-primary text-primary-foreground hover:opacity-90 transition-opacity duration-200"
